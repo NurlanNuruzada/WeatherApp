@@ -9,7 +9,8 @@ const searchBtn = document.querySelector('#SeachButton')
 function getWeather(SearchCity) {
     fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${SearchCity}&aqi=no`)
     .then (x=>x.json())
-    .then (x=>renderWeather(x));
+    .then (x=>renderWeather(x) 
+    ).catch( rederNotFound(x));
 }
 
 
@@ -30,7 +31,6 @@ function rederNotFound(SearchCity) {
 }
 
 function renderWeather(weather){
-    rederNotFound(weather)
     if (weatherContainer.childElementCount=9){
         weatherContainer.innerHTML = ''
     }
