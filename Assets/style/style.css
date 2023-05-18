@@ -1,5 +1,189 @@
-.weather-container{
-display: flex;
-flex-direction: column;
-border: 1px solid black;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+#title__main {
+  color: rgba(255, 255, 255, 0.811);
+  text-shadow: 1px 1px 3px rgba(169, 168, 168, 0.668);
+  font-size: 26px;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+
+
+.main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding-left: 40px;
+}
+
+.color {
+  width: 200px;
+  height: 2000px;
+  background-color: aqua;
+}
+
+.background__img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.grid__container {
+  color: white;
+  text-shadow: 2px 2px 3px rgba(32, 32, 32, 0.668);
+  margin-bottom: 30px;
+  column-gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: fit-content;
+  height: fit-content;
+
+}
+
+.city {
+  width: 200px;
+  height: 65px;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.city::-webkit-scrollbar {
+  display: none;
+}
+
+.grid__container>span {
+  text-align: start;
+}
+
+.item1 {
+  font-size: 80px !important;
+  grid-row: 1 / 3;
+}
+
+.city {
+  font-size: 50px !important;
+}
+
+.timeAndHum,
+.condition {
+  font-size: 20px !important;
+}
+
+.Icon {
+  width: 60px;
+}
+
+.main__content {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.left {
+  max-width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right {
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  height: 100vh;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 100%;
+  padding: 3em 2em;
+  overflow-y: scroll;
+}
+
+.right form {
+  top: 0;
+}
+
+#SeachButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1.45em;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: #fa6d1b;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: 0.5;
+
+}
+#SeachButton:hover{
+  background-color: #fff !important;
+  color: black;
+}
+#searchArea{
+  background: none;
+  border: none;
+  border-bottom: 1px #ccc solid;
+  padding: 0 1em 0.5em 0;
+  width: 80%;
+  color: #fff;
+  font-size: 1.1em;
+}
+#searchArea:focus{
+  outline: none;
+}
+#searchArea::placeholder{
+  color: #ccc;
+}
+#list_country{
+  padding: 0 0 1em 0;
+  margin:2em 0;
+  border-bottom: 1px #ccc solid;  
+}
+.right li {
+  text-decoration: none;
+  color: #ccc;
+  font-size: medium !important;
+}
+.right .city{
+  cursor: pointer;
+}
+.city:hover{
+  color: #fff;
+}
+.weather-container {
+  display: flex;
+  flex-direction: column;
+}
+.weather-container >span{
+  font-size: medium !important;
+  padding: 10px 0;
+  color: #ccc;
+}
+
+
+
