@@ -1,16 +1,39 @@
-const apiKey = "59815d79931e474393c103846231805"
-fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=London&aqi=no`)
-.then (x=>x.json())
-.then (x=>renderWeather(x),);
-
+//sellected
+const apiKey = "1b092b9711bb4028b48101316231805"
+let SearchCity = "baku"
 const weatherContainer = document.querySelector('.weather-container')
 const Search = document.querySelector('#searchArea')
+const searchBtn = document.querySelector('#SeachButton')
+//sellected end
+
+function getWeather(SearchCity) {
+    fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${SearchCity}&aqi=no`)
+    .then (x=>x.json())
+    .then (x=>renderWeather(x));
+}
+
+
 Search.addEventListener('keyup', (e)=>{
-    let value = e.target.value.trim()
-    console.log(value)
+    SearchCity = e.target.value.trim()
 })
-    
+
+
+searchBtn.addEventListener("click" , () =>{
+    console.log(SearchCity)
+    getWeather(SearchCity)
+})
+
+function rederNotFound(SearchCity) {
+    const rederNotFound=document.createElement('span')
+    rederNotFound.innerHTML='city not found!'
+    weatherContainer.appendChild(rederNotFound)
+}
+
 function renderWeather(weather){
+    if (weatherContainer.childElementCount=9){
+        weatherContainer.innerHTML = ''
+    }
+    rederNotFound(SearchCity)
     console.log(weather)
     //sellectElemets
     const country = weather.location.country;
@@ -48,6 +71,7 @@ function renderWeather(weather){
 
     const Icon = document.createElement('img');
     Icon.src = icon
+    Icon.style.width = "20px"
     
     const Time = document.createElement('span');
     Time.innerText= `time : ${time.slice(10)}`;
@@ -64,3 +88,6 @@ function renderWeather(weather){
     weatherContainer.appendChild(Icon)
     //append elemnts end
 }
+
+
+getWeather(SearchCity)
