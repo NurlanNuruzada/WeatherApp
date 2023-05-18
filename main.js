@@ -30,11 +30,10 @@ function rederNotFound(SearchCity) {
 }
 
 function renderWeather(weather){
+    rederNotFound(weather)
     if (weatherContainer.childElementCount=9){
         weatherContainer.innerHTML = ''
     }
-    rederNotFound(SearchCity)
-    console.log(weather)
     //sellectElemets
     const country = weather.location.country;
     const city = weather.location.name;
