@@ -7,20 +7,20 @@ const searchBtn = document.querySelector('#SeachButton')
 const main = document.querySelector(".main")
 const gridItems = document.querySelector(".grid__container")
 const cities = document.querySelectorAll(".city")
-cities.forEach((city)=>{
-    city.addEventListener('click',(e)=>{
-        SearchCity = e.target.innerHTML;
-        getWeather(SearchCity)
+cities.forEach((city) => {
+        city.addEventListener('click', (e) => {
+            SearchCity = e.target.innerHTML;
+            getWeather(SearchCity)
+        })
     })
-})
-//sellected end
+    //sellected end
 
 // backgroundImg start
 backGroundImg = document.createElement('div')
 backGroundImg.className = "background__img"
 backGroundImg.style.backgroundImage = 'url("./Assets/img/morning_cloud.jpg")';
 main.appendChild(backGroundImg)
-//backgroundImg End
+    //backgroundImg End
 
 function getWeather(SearchCity) {
     fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${SearchCity}&aqi=no`)
@@ -94,7 +94,7 @@ function renderWeather(weather) {
     Uv.innerText = `Uv   ${uv}`;
 
     const Icon = document.createElement('img');
-    Icon.src = icon
+    Icon.src = "https:" + icon
     Icon.className = "Icon"
 
     const Time = document.createElement('span');
@@ -105,7 +105,7 @@ function renderWeather(weather) {
     const Condition = document.createElement("span")
     Condition.innerText = condition
     Condition.className = "condition"
-    //createEnd
+        //createEnd
 
     //append elemnts 
     weatherContainer.appendChild(countrySpan)
@@ -118,7 +118,7 @@ function renderWeather(weather) {
     gridItems.appendChild(Humidity)
     gridItems.appendChild(tempCSpan)
     gridItems.appendChild(Condition)
-    //append elemnts end
+        //append elemnts end
 }
 
 
