@@ -103,7 +103,8 @@ body::-webkit-scrollbar {
 }
 
 .left {
-  max-width: max-content;
+  max-width: 500px;
+  min-width: 500px !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -119,6 +120,7 @@ body::-webkit-scrollbar {
   max-width: 100%;
   padding: 3em 2em;
   overflow-y: scroll;
+
 }
 
 .right form {
